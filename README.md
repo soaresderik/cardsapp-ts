@@ -1,4 +1,4 @@
-# cardsapp-ts
+# complete-ts
 
 ## Project setup
 ```
