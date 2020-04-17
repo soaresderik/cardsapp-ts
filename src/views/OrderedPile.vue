@@ -48,3 +48,40 @@ export default class OrderedPile extends Vue {
   }
 }
 </script>
+
+<style scoped>
+#section {
+  max-width: 500px;
+  margin: 10px auto;
+  border: 1px solid #979797;
+  background: #d8d8d8;
+  height: 300px;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1px;
+  padding: 8px 15px;
+  list-style: none;
+  overflow: hidden;
+}
+
+ul li {
+  display: inline-block;
+  flex-direction: column;
+}
+
+#info {
+  text-align: left;
+  margin: 20px auto;
+  max-width: 300px;
+}
+
+@media (max-width: 450px) {
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>

@@ -92,3 +92,51 @@ export default class FormCard extends Vue {
 }
 
 </script>
+
+<style scoped>
+#form {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 7px;
+  padding: 8px 15px;
+  max-width: 1000px;
+  margin: 25px auto;
+}
+
+#form div input {
+  width: 100%;
+}
+
+#form div label {
+  display: block;
+  text-align: left;
+}
+
+#rotation {
+  display: flex;
+  justify-content: space-between;
+  max-width: 440px;
+  margin: 10px auto;
+}
+
+#rotation h3 {
+  font-size: 25px;
+  white-space: nowrap;
+  margin: 0 10px;
+}
+
+#rotation input {
+  max-width: 350px;
+}
+
+button {
+  margin-top: 120px;
+  color: #fbe500;
+  font-weight: bold;
+  background: #1c0063;
+  border: 0;
+  padding: 10px 40px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+</style>
