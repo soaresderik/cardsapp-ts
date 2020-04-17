@@ -3,11 +3,11 @@ const combinations: any = function*(elements: any, length: number) {
     if (length === 1) {
       yield [elements[i]];
     } else {
-      let remaining: any = combinations(
+      const remaining: any = combinations(
         elements.slice(i + 1, elements.length),
         length - 1
       );
-      for (let next of remaining) {
+      for (const next of remaining) {
         yield [elements[i], ...next];
       }
     }
@@ -15,11 +15,11 @@ const combinations: any = function*(elements: any, length: number) {
 };
 
 const fullHouse = (arr: string[]) => {
-  let countObj: any = {};
-  for (let x of arr) {
+  const countObj: any = {};
+  for (const x of arr) {
     countObj[x[0]] = (countObj[x[0]] || 0) + 1;
   }
-  let vals = Object.values(countObj);
+  const vals = Object.values(countObj);
   if ((vals[0] === 2 && vals[1] === 3) || (vals[1] === 2 && vals[0] === 3)) {
     return true;
   }
@@ -27,7 +27,7 @@ const fullHouse = (arr: string[]) => {
 };
 
 export default function allFullHouses(arr: string[]): string[] {
-  let newArr: string[][] = [];
+  const newArr: string[][] = [];
   if (arr.length < 5) return [];
 
   arr.forEach((a) => {

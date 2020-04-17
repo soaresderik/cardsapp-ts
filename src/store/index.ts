@@ -1,7 +1,8 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import api from "../utils/api";
-import { InputCards } from "./interfaces";
+import { InputCards, DeckListResponse } from "./interfaces";
+import cardRotator from "@/utils/cardRotator";
 
 Vue.use(Vuex);
 
@@ -37,6 +38,21 @@ export default new Vuex.Store({
 
         commit("setRotationCard", inputs.rotationCard);
         return data.deck_id;
+      } catch (err) {
+        throw new Error("Internal server error.");
+      }
+    },
+    async getDeckById({ commit, state }, deckId) {
+      try {
+        // Get user hand
+        const { data } = await api.get<DeckListResponse>(
+          `/deck/${deckId}/pile/${deckId}/list`
+        );
+        const { cards } = data.piles[deckId];
+        const codes = cards.map((i) => i.code);
+        const ordered = cardRotator(codes, state.rotationCard);
+
+        commit("setCards", ordered);
       } catch (err) {
         throw new Error("Internal server error.");
       }

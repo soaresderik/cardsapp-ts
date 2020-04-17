@@ -1,6 +1,6 @@
 export default function cardRotator(
   inputs: string[],
-  highCard: string
+  highCard: string | null
 ): string[] {
   // main order
   const cards = [2, "A", "K", "Q", "J", 10, 9, 8, 7, 6, 5, 4, 3];
