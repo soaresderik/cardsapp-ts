@@ -8,6 +8,7 @@
           type="text"
           v-model="input.value"
           maxlength="3"
+          :data-cy="input.label"
         />
       </div>
     </section>
@@ -26,6 +27,7 @@
       type="button"
       value="SUBMIT"
       @click="createNewDeck"
+      data-cy="submit"
     >
       Submit
     </button>
